@@ -69,7 +69,7 @@ namespace thZero.Services
                 if (string.IsNullOrEmpty(Config.User) && string.IsNullOrEmpty(Config.Profile))
                     throw new Exception("Invalid Configurationl missing profile.");
 
-                SourceRepositoryProfile results = new SourceRepositoryProfile();
+                SourceRepositoryProfile results = new();
 
                 string profileName = !string.IsNullOrEmpty(Config.User) ? Config.User : Config.Profile;
                 if (string.IsNullOrEmpty(profileName))
@@ -114,7 +114,7 @@ namespace thZero.Services
         #endregion
 
         #region Fields
-        private readonly AsyncLock _mutex = new AsyncLock();
+        private readonly AsyncLock _mutex = new();
         private static long _last = DateTime.Now.Ticks;
         private static SourceRepositoryProfile _profile;
         #endregion
